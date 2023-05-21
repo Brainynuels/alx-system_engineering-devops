@@ -1,0 +1,8 @@
+#!/bin/bash
+decimal=$DECIMAL
+if [[ -z "$decimal" ]]; then
+    echo "DECIMAL environment variable not set."
+    exit 1
+fi
+hex=$(echo "obase=16; $decimal" | bc)
+echo "$hex"
