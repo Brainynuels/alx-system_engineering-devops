@@ -1,13 +1,2 @@
 #!/bin/bash
-
-water=$WATER
-stir=$STIR
-
-if [[ -z "$water" || -z "$stir" ]]; then
-    echo "One or both environment variables not set."
-    exit 1
-fi
-
-result=$((water + stir))
-echo "Result: $result"
-
+printf '%o\n' $(( $((5#$(echo $STIR | tr 'stir.' '01234'))) + $((5#$(echo $WATER | tr 'water' '01234'))) )) | tr '01234567' 'behlnort'
